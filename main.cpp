@@ -33,7 +33,7 @@ constexpr int kWindowWidth = 1280;
 constexpr int kWindowHeight = 720;
 constexpr float kConfidence = 0.9f;
 
-constexpr auto kAudioPath = "../../working/o.wav";
+constexpr auto kAudioPath = "../../working/mianjing2.wav";
 constexpr auto kModelPath = L"../../model.onnx";
 
 int main() {
