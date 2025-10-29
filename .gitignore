@@ -2,3 +2,4 @@
 /bin
 /onnx/lib/*.pdb
 /raylib/lib/*.pdb
+/working
