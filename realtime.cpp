@@ -189,19 +189,20 @@ int main(int argc, char const *argv[]) {
 
     ma_device_config config;
     config = ma_device_config_init(ma_device_type_capture);
-    config.capture.format = ma_format_f32; // Set to ma_format_unknown to use the device's native format.
-    config.capture.channels = 1;           // Set to 0 to use the device's native channel count.
-    config.sampleRate = kSampleRate;             // Set to 0 to use the device's native sample rate.
-    config.dataCallback = MyAudioCallback;   // This function will be called when miniaudio needs more data.
-    config.pUserData = nullptr;  // Can be accessed from the device object (device.pUserData).
+    config.capture.format = ma_format_f32;
+    config.capture.channels = 1;
+    config.sampleRate = kSampleRate;
+    config.dataCallback = MyAudioCallback;
+    config.pUserData = nullptr;
+    // set this index to your capture device  ↓
     config.capture.pDeviceID = &pCaptureInfos[1].id;
 
     if (ma_device_init(NULL, &config, &audio_device) != MA_SUCCESS) {
         return -1;
     }
-    ma_device_start(&audio_device); // The device is sleeping by default so you'll need to start it manually.
+    ma_device_start(&audio_device);
 
-    InitWindow(kWindowWidth, kWindowHeight, "Simple XY");
+    InitWindow(kWindowWidth, kWindowHeight, "SwiftF0 realtime");
     SetTargetFPS(30);
 
     texture_spectrum = LoadRenderTexture(kImageWidth, kImageHeight);
